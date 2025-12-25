@@ -1,124 +1,108 @@
 # pfSense-firewall-penetration-testing
 
-### pfSense Firewall Penetration Testing & DMZ Security Analysis
+## Penetration Testing a pfSense Firewall
 
-> This repository documents a hands-on penetration testing and security assessment lab conducted on a pfSense firewall and DMZ environment.
+This repository documents a hands-on penetration testing and firewall hardening case study conducted in a controlled academic lab environment.
 
-> The project focuses on firewall rule analysis, vulnerability scanning, network reconnaissance, and security hardening recommendations, aligned with real-world enterprise security practices.
+The project focuses on analyzing, testing, and improving the security posture of a network protected by a pfSense firewall using industry-standard penetration testing methodologies and tools.
 
-> ⚠️ This is a security lab and architecture analysis project, not an exploitation guide.
+> ⚠️ This is a **defensive security lab and architecture case study**, not an exploitation guide.
 
-### Scope of the Project
 
-- Firewall rule inspection (WAN / DMZ)
+### Project Overview
 
-- Network reconnaissance (traceroute, port scanning)
+The objective of this project was to:
+- Assess firewall rule effectiveness
+- Identify exposed services and misconfigurations
+- Perform vulnerability scanning
+- Apply remediation steps
+- Validate security improvements through re-scanning
 
-- Vulnerability assessment using Nessus and OpenVAS
+The environment simulates a real-world enterprise network including:
+- DMZ
+- Internal LAN
+- Firewall perimeter
+- External attacker perspective
 
-- IDS visibility and attack surface evaluation
 
-- DMZ security best practices and misconfiguration analysis
+### Lab Environment
 
-- Security hardening recommendations
+**Firewall**
+- pfSense (Firewall & Router)
 
-###  Tools & Technologies
+**Operating Systems**
+- Windows Server 2019 (Target systems)
+- Kali Linux (Attacker)
+- Linux-based vulnerability scanner
 
-- pfSense Firewall
-
-- Nessus Vulnerability Scanner
-
-- OpenVAS (Greenbone)
-
+**Security Tools**
+- Nessus
+- OpenVAS / Greenbone
 - Nmap
+- Traceroute
 
-- Linux (Attack VM)
 
-- DMZ-based network topology
+### Penetration Testing Methodology
 
-- Key Activities Performed
- 
-### Firewall & DMZ Analysis
+The project follows a structured penetration testing lifecycle:
 
-- Reviewed WAN firewall rules and exposed services
+1. **Reconnaissance**
+   - Traceroute analysis
+   - Network discovery
+2. **Port Scanning**
+   - Nmap default and advanced scans
+3. **Vulnerability Scanning**
+   - Nessus vulnerability assessment
+   - OpenVAS full and fast scans
+4. **Analysis**
+   - Identification of medium and low-risk vulnerabilities
+   - Firewall rule evaluation
+5. **Remediation**
+   - Removal of overly permissive firewall rules
+   - Tightening inbound and outbound access policies
+6. **Validation**
+   - Re-running vulnerability scans
+   - Confirming risk reduction
 
-Verified NAT and port exposure on DMZ interfaces
+## Key Findings
 
-- Reconnaissance & Scanning
+- Overly permissive WAN firewall rules exposed internal systems
+- Default “allow all” LAN rules increased attack surface
+- Public-facing services required stricter port-level control
+- IDS visibility improved early attack detection
 
-- Traceroute analysis to identify network path
+### Remediation Actions
 
-- Nmap scans with OS detection
+- Removed unrestricted WAN access rules
+- Restricted inbound services to required ports only
+- Hardened LAN outbound firewall policies
+- Revalidated security posture using vulnerability rescans
 
-- Port enumeration on DMZ services
 
-- Vulnerability Assessment
+### Security Concepts Demonstrated
 
-- Nessus scans (pre- and post-hardening)
+- Firewall rule analysis and hardening
+- DMZ security principles
+- Defense-in-depth
+- Vulnerability management lifecycle
+- Difference between white-box and black-box penetration testing
+- Secure network architecture reasoning
 
-OpenVAS vulnerability analysis
+### Visual Documentation
 
-Validation of firewall rule effectiveness after changes
+This repository includes:
+- Network topology diagrams
+- Firewall rule screenshots
+- Vulnerability scan summaries
 
-Security Evaluation
-
-Identification of unnecessary exposed services
-
-Analysis of least-privilege enforcement
-
-DMZ segmentation and isolation assessment
-
-### Security Findings & Recommendations
-
-Key recommendations derived from the assessment include:
-
-Enforcing least-privilege firewall rules
-
-Restricting administrative access to management networks only
-
-Hardening DMZ servers (service reduction, patching)
-
-Deploying WAF and IDS monitoring
-
-Scheduling regular authenticated vulnerability scans
-
-### Visual Evidence
-
-The screenshots/ directory contains sanitized screenshots demonstrating:
-
-Firewall rule configuration
-
-Vulnerability scan results
-
-Port scan outputs
-
-Traceroute and network visibility
-
-These visuals are provided for educational and architectural reference only.
+> Screenshots are provided **for documentation purposes only**.  
+> No credentials, proprietary configurations, or production systems are exposed.
 
 
 ### Disclaimer
 
-This repository does not contain:
+- This project was completed in an **academic lab environment**
+- No real-world organization or production network was tested
+- No exploitation beyond controlled scanning was performed
+- Shared strictly for **educational and portfolio purposes**
 
-Exploit code
-
-Credentials
-
-Production configurations
-
-Confidential infrastructure details
-
-All information is shared strictly for educational and portfolio purposes.
-
-### Why This Matters
-
-This project demonstrates:
-
-Practical firewall security assessment skills
-
-Understanding of DMZ design and attack surface reduction
-
-Hands-on experience with industry-standard security tools
-
-Ability to analyze, document, and recommend security improvements
