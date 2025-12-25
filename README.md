@@ -65,22 +65,18 @@ The project follows a structured penetration testing lifecycle:
    - Confirming risk reduction
 
 ## Key Findings
-
 - Overly permissive WAN firewall rules exposed internal systems
 - Default “allow all” LAN rules increased attack surface
 - Public-facing services required stricter port-level control
 - IDS visibility improved early attack detection
 
 ### Remediation Actions
-
 - Removed unrestricted WAN access rules
 - Restricted inbound services to required ports only
 - Hardened LAN outbound firewall policies
 - Revalidated security posture using vulnerability rescans
 
-
 ### Security Concepts Demonstrated
-
 - Firewall rule analysis and hardening
 - DMZ security principles
 - Defense-in-depth
@@ -88,8 +84,34 @@ The project follows a structured penetration testing lifecycle:
 - Difference between white-box and black-box penetration testing
 - Secure network architecture reasoning
 
-### Visual Documentation
+### Vulnerability Scan Validation (OpenVAS)
+The screenshot below shows the results of an OpenVAS (Greenbone) vulnerability scan
+performed against the DMZ target after firewall hardening.
 
+No high, medium, or low severity vulnerabilities were detected,
+indicating an improved security posture following configuration changes.
+
+<img width="652" height="467" alt="Screenshot 2025-12-25 at 12 27 58 PM" src="https://github.com/user-attachments/assets/5fe56cdb-f98a-41e3-9177-1e24707973bb" />
+
+
+
+### Vulnerability Scan Results (Nessus)
+
+The screenshot below shows the results of a Nessus vulnerability scan
+performed against DMZ assets protected by a pfSense firewall.
+
+Only informational findings were detected, indicating that no critical,
+high, or medium-risk vulnerabilities were present after firewall hardening
+and service exposure reduction.
+
+<img width="657" height="469" alt="Screenshot 2025-12-25 at 12 25 03 PM" src="https://github.com/user-attachments/assets/29944b06-cd58-45ef-bbc5-52df65a742d8" />
+
+### Outcome
+> Firewall hardening actions successfully reduced the attack surface,
+with post-remediation scans confirming no critical or high-risk vulnerabilities.
+
+ 
+### Visual Documentation
 This repository includes:
 - Network topology diagrams
 - Firewall rule screenshots
@@ -100,9 +122,9 @@ This repository includes:
 
 
 ### Disclaimer
-
 - This project was completed in an **academic lab environment**
 - No real-world organization or production network was tested
 - No exploitation beyond controlled scanning was performed
 - Shared strictly for **educational and portfolio purposes**
+
 
